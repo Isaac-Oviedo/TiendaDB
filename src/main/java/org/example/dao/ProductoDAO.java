@@ -6,7 +6,6 @@ import java.sql.*;
 
 public class ProductoDAO {
 
-    // Inserta un producto y recupera el id que le asigna la BD
     public void insertar(Producto producto) throws SQLException {
         String sql = "INSERT INTO productos (nombre, precio, stock) VALUES (?, ?, ?)";
         try (Connection con = ConexionDB.getConexion();
@@ -23,7 +22,6 @@ public class ProductoDAO {
         }
     }
 
-    // Devuelve el producto con ese id, o null si no existe
     public Producto buscarPorId(int id) throws SQLException {
         String sql = "SELECT id_producto, nombre, precio, stock FROM productos WHERE id_producto = ?";
         try (Connection con = ConexionDB.getConexion();
@@ -42,7 +40,6 @@ public class ProductoDAO {
         return null;
     }
 
-    // Cambia solo la columna stock. Devuelve true si encontró el producto
     public boolean actualizarStock(int id, int nuevoStock) throws SQLException {
         String sql = "UPDATE productos SET stock = ? WHERE id_producto = ?";
         try (Connection con = ConexionDB.getConexion();

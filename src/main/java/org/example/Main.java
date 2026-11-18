@@ -107,8 +107,6 @@ public class Main {
         }
     }
 
-    // --- Métodos auxiliares para leer del teclado ---
-
     private static String leerTexto(String mensaje) {
         System.out.print(mensaje);
         return scanner.nextLine().trim();
@@ -129,7 +127,7 @@ public class Main {
             try {
                 return new BigDecimal(leerTexto(mensaje).replace(',', '.'));
             } catch (NumberFormatException e) {
-                System.out.println("Introduce un número válido, por ejemplo 12.50.");
+                System.out.println("Introduce un número válido");
             }
         }
     }
